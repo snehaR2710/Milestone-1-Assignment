@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Vowel Counter</h2>
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" placeholder="Type your name">
+    <button onclick="countVowels()">Count Vowels</button>
+    <p id="result"></p>
+
+    <script>
+        function countVowels() {
+            // Get the input value
+            var name = document.getElementById("name").value;
+
+            // Initialize the vowel count
+            var vowelCount = 0;
+
+            // Iterate through each character in the name
+            for (var i = 0; i < name.length; i++) {
+                // Check if the character is a vowel
+                if (isVowel(name[i])) {
+                    vowelCount++;
+                }
+            }
+
+            // Display the result
+            document.getElementById("result").innerText = "Number of vowels in your name: " + vowelCount;
+        }
+
+        // Function to check if a character is a vowel
+        function isVowel(char) {
+            return ['a', 'e', 'i', 'o', 'u'].indexOf(char) !== -1;
+        }
+    </script>
+</body>
+</html>

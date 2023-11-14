@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Colour Genretor</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            transition: 1s;
+        }
+        .main{
+            font: sans-serif;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 30rem;
+            /*height: 15rem;*/
+            padding: 10px;
+            border-radius: 10px;
+            background: #fff;
+            font-size: 25px;
+            text-align: center;
+        }
+        button{
+            display: block;
+            width: 100%;
+            font-size: 30px;
+            padding: 5px;
+            margin-top: 10px;
+            background: #b43d6b;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+        }
+        button:hover{
+            background: #204e5d;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h2 id="color-code">#fff</h2>
+            <button id="btn">Click Here</button>
+        </div>
+
+    </div>
+
+    
+
+    <script>
+        const getColor = () => {
+
+            /*The number 16777215 is used because it represents the decimal equivalent of the color code "FFFFFF" in hexadecimal, which is the highest possible color code that can be represented using six hexadecimal digits (e.g., "#FFFFFF").*/
+           const randomNumber = Math.floor(Math.random() * 16777215);
+
+           /*The toString(16) method converts the number to a string in base 16 (hexadecimal). The resulting hexadecimal string is then prefixed with "#" to form a valid color code (e.g., "#ABCDEF").*/
+           const randomCode = "#" + randomNumber.toString(16);
+           //console.log(randomNumber, randomCode);
+
+
+           /*This line sets the background color of the entire HTML document body to the randomly generated color code.*/
+           document.body.style.backgroundColor = randomCode;
+
+           /*This line updates the inner HTML of an element with the ID "color-code" with the randomly generated color code.*/
+           document.getElementById("color-code").innerHTML = randomCode;
+
+        }
+        // this is event call
+
+        /* when button is clicked the getClor function will be called , updating the background color of the document body and displaying the random code on the page.*/
+        document.getElementById("btn").addEventListener(
+            "click",
+            getColor
+        )
+        // when page is load then it call(this is initial call)
+        /* It ensures that when the page is loaded, the background color of the document body is initially set to a random color*/
+        getColor();
+
+    </script>
+</body>
+</html>

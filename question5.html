@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Name Capitalization</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input {
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        padding: 8px;
+        cursor: pointer;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <label for="nameInput">Enter your name:</label>
+      <input type="text" id="nameInput" />
+      <button onclick="capitalizeName()">Capitalize Name</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      function capitalizeName() {
+        // Get the input value
+        var nameInput = document.getElementById("nameInput").value;
+
+        // Check if the first letter is lowercase using the ternary operator
+        var modifiedName =
+          nameInput && nameInput[0].toLowerCase() === nameInput[0]
+            ? nameInput.charAt(0).toUpperCase() + nameInput.slice(1)
+            : nameInput;
+
+        // Display the result
+        document.getElementById("result").innerText =
+          "Result is: " + modifiedName;
+      }
+    </script>
+  </body>
+</html>

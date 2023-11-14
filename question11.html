@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body, html{
+            width: 100%;
+            height: 100%;
+            background: #be9fed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 500px;
+            height: 300px;
+            background-color: #4a98f7;
+            border-radius: 15px;
+        }
+        h4{
+            font-size: 30px;
+            font-weight: 600;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        .cel{
+            height: 40px;
+            width: 180px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            text-align: center;
+            font-size: 20px;
+        }
+        .icon{
+            font-size: 40px;
+        }
+        .input-box input::-webkit-inner-spin-button,
+        .input-box input::-webkit-outer-spin-button{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="input-box">
+            <h4>Celsius</h4>
+            <input type="number" class="cel" id="celsius">
+        </div>
+
+        <div class="icon"> ‗</div>
+
+        <div class="input-box">
+            <h4>Fahrenheit</h4>
+            <input type="number" class="cel" id="fahrenheit">
+        </div>
+    </div>
+
+    <script>
+        const celsius = document.getElementById("celsius");
+        const fahrenheit = document.getElementById("fahrenheit");
+
+        // convert celsius to Fahrenheit
+        celsius.addEventListener("input", () => {
+            fahrenheit.value =  ((celsius.value * 9) / 5 + 32).toFixed(3)
+
+            // clear fahrenheit input when celsius input is empty
+            if(!celsius.value) fahrenheit.value = "";
+        })
+
+        // covert Fahrenheit to celsius 
+        fahrenheit.addEventListener("input", () => {
+            celsius.value = (((fahrenheit.value - 32) * 5) /9).toFixed(3);
+            // clear celsius input when fahrenheit input is empty
+            if(!fahrenheit.value) celsius.value = "";
+        })
+    </script>
+</body>
+</html>
